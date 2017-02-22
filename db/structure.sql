@@ -49,7 +49,8 @@ CREATE TABLE motorcycle_makes (
     id integer NOT NULL,
     name character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    CONSTRAINT motorcycle_makes_name_format_check CHECK (((name)::text ~ '^([a-zA-Z][a-zA-Z0-9[:space:]]{2,})$'::text))
 );
 
 
@@ -110,6 +111,13 @@ ALTER TABLE ONLY motorcycle_makes
 
 ALTER TABLE ONLY schema_migrations
     ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: motorcycle_makes_name_unique_index; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX motorcycle_makes_name_unique_index ON motorcycle_makes USING btree (lower((name)::text));
 
 
 --
