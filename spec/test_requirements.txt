@@ -1,6 +1,10 @@
-- Motorcycle make name:
-  * Must be unique (case insensitive). DONE
-  * Can't be an empty string. DONE
-  * Length must be greater or equal than 3. DONE
-  * Can't be an only spaces string. DONE
-  * Can only contains letters, numbers, spaces, and start with a letter. DONE
+MotorcycleMake
+--------------
+
+  - name:
+    * Must be unique (case insensitive). DONE
+    * Can't be an empty string. DONE
+    * Length must be greater or equal than 3. DONE
+    * Can't be an only spaces string. DONE
+    * Can only contains letters, numbers, spaces, and start with a letter. DONE
+    * Must be required.

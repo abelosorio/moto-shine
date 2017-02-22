@@ -26,6 +26,12 @@ describe MotorcycleMake do
       }.to violate_check_constraint(:motorcycle_makes_name_format_check)
     end
 
+    it 'must be required' do
+      expect {
+        MotorcycleMake.create!
+      }.to raise_error(ActiveRecord::StatementInvalid, /PG::NotNullViolation/i)
+    end
+
     it 'should accept valids' do
       make1 = MotorcycleMake.create!(name: 'BMW')
       make2 = MotorcycleMake.create!(name: 'Harley Davidson')
