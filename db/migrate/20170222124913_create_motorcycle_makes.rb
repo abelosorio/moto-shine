@@ -1,10 +1,17 @@
 class CreateMotorcycleMakes < ActiveRecord::Migration[5.0]
   def up
     create_table :motorcycle_makes do |t|
-      t.string :name
+      t.string :name, presence: true
 
       t.timestamps
     end
+
+    # name must be required
+    execute <<-SQL
+      ALTER TABLE #{MotorcycleMake.table_name}
+        ALTER COLUMN name
+          SET NOT NULL;
+    SQL
 
     # name must be unique (in case insensitive way)
     execute <<-SQL
