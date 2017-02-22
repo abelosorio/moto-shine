@@ -1,0 +1,3 @@
+- Motorcycle make name:
+  * Must be unique (case insensitive).
+  * Can't be an empty string.
