@@ -10,9 +10,6 @@ before_script:
   - psql -U postgres -c "CREATE ROLE moto_shine LOGIN SUPERUSER ENCRYPTED PASSWORD 'moto_shine';"
   - psql -U postgres -c 'ALTER DATABASE moto_shine_test OWNER TO moto_shine;'
 
-before_install:
-  - "ruby --version"
-
 addons:
   postgresql: 9.4
 
